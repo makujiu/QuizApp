@@ -8,10 +8,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main extends Application {
+    ArrayList<String> courses;
     @FXML
-    private ChoiceBox<?> courseSelect;
+    private ChoiceBox<String> courseSelect;
 
     @FXML
     private Button newCourse;
@@ -21,11 +25,13 @@ public class Main extends Application {
 
     @FXML
     private Button startButton;
-
+    Database db;
     Stage window;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        db = new Database();
+        initCourseList();
         Parent root = FXMLLoader.load(getClass().getResource("View/menu.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
@@ -33,6 +39,11 @@ public class Main extends Application {
     }
 
 
+    private void initCourseList() throws SQLException {
+        courses = db.getCourses();
+        for(String s : courses)
+            courseSelect.getItems().add(s);
+    }
     @FXML
     private void startQuiz() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("View/QuestionWindow.fxml"));

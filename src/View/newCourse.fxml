@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newCourseController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -35,22 +34,22 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <TextField prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1">
+            <TextField fx:id="courseName" prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1">
                <font>
                   <Font size="48.0" />
                </font>
             </TextField>
-            <TextField prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="profName" prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="48.0" />
                </font>
             </TextField>
-            <TextField prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="year" prefHeight="69.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="48.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="200.0" text="Okay" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#okClicked" prefHeight="87.0" prefWidth="200.0" text="Okay" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font size="48.0" />
                </font>
