@@ -31,15 +31,21 @@
                </font>
             </Label>
             <ChoiceBox fx:id="courseSelect" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="newCourse" mnemonicParsing="false" text="Neues Fachanlegen" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Button fx:id="newCourse" mnemonicParsing="false" onAction="#newCourse" prefHeight="60.0" prefWidth="155.0" text="Neues Fachanlegen" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
-            <Button fx:id="editQuestions" mnemonicParsing="false" text="Fragen bearbeiten" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="editQuestions" maxWidth="155.0" mnemonicParsing="false" prefHeight="60.0" text="Fragen bearbeiten" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#startQuiz" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
          </children>

@@ -41,6 +41,14 @@ public class Main extends Application {
         window.show();
 
     }
+
+    @FXML
+    private void newCourse() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("View/newCourse.fxml"));
+        window = new Stage();
+        window.setScene(new Scene(root));
+        window.show();
+    }
     public static void main(String[] args) {
         launch(args);
     }
