@@ -27,15 +27,13 @@ public class Database {
 
 
     public ArrayList<String> getCourses() throws SQLException {
-        String query = "SELECT TABLE_NAME" +
-                "FROM INFORMATION_SCHEMA.TABLES" +
-                "WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='quiz' ";
+        String query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='quiz' ";
         ArrayList<String> results = new ArrayList<String>();
         statement = conn.createStatement();
         result = statement.executeQuery(query);
         int i = 0;
         while(result.next()) {
-            results.add(result.getString(i));
+            results.add(result.getString("TABLE_NAME"));
             i++;
         }
         return results;
@@ -66,6 +64,10 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Basic method to establish a connection to database
+     */
     private void connectDatabase(){
         try {
             Class.forName("com.mysql.jdbc.Driver");

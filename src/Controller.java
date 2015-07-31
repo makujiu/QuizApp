@@ -4,6 +4,11 @@
     import javafx.scene.control.CheckBox;
     import javafx.scene.control.Label;
 
+
+    /**
+     * TODO: this is the controller for the Quiz-Game itself. Logic needs to be implemented
+     *
+     */
     public class Controller {
 
         @FXML
