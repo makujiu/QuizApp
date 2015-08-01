@@ -1,0 +1,146 @@
+#mainBackground{
+    -fx-background-color: #86C1B9;
+    -fx-font-size: 12px;
+
+}
+.label{
+    -fx-font-size: 11pt;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+    -fx-font: bold 12pt "ITC Stone";
+}
+.label-bright {
+    -fx-font: bold 10pt "ITC Stone";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+.label-header {
+    -fx-font: bold 10pt "ITC Stone";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+.button {
+    -fx-padding: 3 6 6 6;
+    -fx-border-color: #e2e2e2;
+    -fx-border-radius: 33;
+    -fx-background-radius: 33;
+    -fx-background-color: #8eadcc;
+    -fx-font: bold 10pt "ITC Stone";
+    -fx-text-fill: #d8d8d8;
+
+}
+
+.button:hover {
+    -fx-background-color: #475666;
+    -fx-background-radius: 33;
+}
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #475666;
+    -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+
+    
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: -fx-focus-color,30%;
+}
+
+.menu-bar{
+    -fx-font: bold 14pt "ITC Stone";
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+    -fx-background-color: #404040;
+}
+.menu-bar .column-header-background{
+    -fx-background-color: transparent;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: #1d1d1d;
+    -fx-border-color: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color:
+    transparent
+    transparent
+    derive(-fx-base, 80%)
+    transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.tab-pane{
+    -fx-background-color: #1d1d1d;
+    -fx-font-size: 12px;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 100;
+    -fx-font-color: white;
+    -fx-background-color: #404040;
+}
+
+.tab{
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+.table-view .column-header .label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: #7CFC00;
+}

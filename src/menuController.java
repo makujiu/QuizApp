@@ -36,8 +36,9 @@ public class menuController {
     }
 
     public menuController(){
-        for(String s : values)
+      /*  for(String s : values)
             courseSelect.getItems().add(s);
+            */
     }
 
     /**
