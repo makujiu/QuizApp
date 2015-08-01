@@ -44,7 +44,8 @@ public class Database {
      * @param prof column name
      * @param age  year of the class
      */
-    public void createCourse(String courseName, String prof, int age){
+    public boolean createCourse(String courseName, String prof, int age){
+        boolean success = false;
         String course= courseName.replaceAll("\\s","");
         String query ="create Table " + course +
                 " (professor varchar(255)," +
@@ -55,14 +56,16 @@ public class Database {
                 "answer3 varchar(255)," +
                 "answer4 varchar(255))";
         System.out.println("Trying query : " + query);
-        try {
-            statement = conn.createStatement();
-            if(statement.executeUpdate(query) != 0)
+        try {statement = conn.createStatement();
+           statement.executeUpdate(query);
                 System.out.println("Successfully executed query: " + query);
+                success = true;
+
         } catch (SQLException e) {
             System.out.println("error with createCourse()");
             e.printStackTrace();
         }
+        return success;
     }
 
     /**

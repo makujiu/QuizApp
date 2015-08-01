@@ -34,7 +34,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <ComboBox fx:id="courseSelect" blendMode="SRC_ATOP" cacheHint="SCALE_AND_ROTATE" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox fx:id="courseSelect" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
              </ComboBox>
             <Button fx:id="newCourse" mnemonicParsing="false" onAction="#newCourse" prefHeight="60.0" prefWidth="155.0" text="Neues Fachanlegen" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>

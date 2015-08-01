@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class menuController {
     ArrayList<String> courses;
-
+    Database db;
     static ArrayList<String> values;
     @FXML
     private ComboBox<String> courseSelect;
@@ -29,17 +29,30 @@ public class menuController {
     @FXML
     private Button startButton;
     private Stage window;
+    private newCourseController newCourseController;
 
-    static void setCourselist(ArrayList<String> vals) throws SQLException {
-        values = vals;
+
+    @FXML
+    public void initialize() throws SQLException {
+        //Will be called by FXMLLoader
+        db = new Database();
+        values = db.getCourses();
 
     }
 
-    public menuController(){
-      /*  for(String s : values)
-            courseSelect.getItems().add(s);
-            */
+    public void setCourses(){
+        courseSelect.getItems().clear();
+        try {
+            for (String s : values) {
+                courseSelect.getItems().add(s);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Error with adding to CourseSelect");
+        }
     }
+
+
 
     /**
      * Method gets called when user clicks on
@@ -62,10 +75,17 @@ public class menuController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/newCourse.fxml"));
         Parent root = loader.load();
-        newCourseController controller = loader.getController();
         Stage window = new Stage();
         newCourseController.setWindow(window);
+        newCourseController.setMenuController(this);
         window.setScene(new Scene(root));
         window.show();
+    }
+
+    public void update() throws SQLException {
+        System.out.println("Called update()");
+        values = db.getCourses();
+        setCourses();
+        System.out.println("Successfully set Courses");
     }
 }
