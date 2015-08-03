@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class Main extends Application {
     Database db;
     Stage window;
-    menuController menuController;
+
 
 
     @Override
@@ -26,8 +26,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/menu.fxml"));
         Parent root = loader.load();
-        menuController = loader.getController();
-        menuController.setCourses();
         primaryStage.setTitle("QuizApp 1.0");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
 <?import java.net.URL?>
+
 <AnchorPane id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menuController">
     <stylesheets>
         <URL value="@../Resources/stylesheet.css" />
@@ -52,7 +53,10 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startQuiz" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startQuiz" prefHeight="85.0" prefWidth="196.0" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font size="33.0" />
+               </font></Button>
          </children>
       </GridPane>
    </children>
