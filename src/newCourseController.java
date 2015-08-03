@@ -39,6 +39,7 @@ public class newCourseController {
         loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
         Parent root = loader.load();
         window.setScene(new Scene(root));
+        NewQuestionController.setTable(courseName.getText());
      if(db.createCourse(courseName.getText(), profName.getText(), Integer.parseInt(year.getText())))
             update();
 

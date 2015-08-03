@@ -51,15 +51,28 @@ public class Database {
                 " (professor varchar(255)," +
                 "courseYear int," +
                 "question varchar(255)," +
-                "answer1 varchar(255)," +
-                "answer2 varchar(255)," +
-                "answer3 varchar(255)," +
-                "answer4 varchar(255))";
+                "answer varchar(255))";
         System.out.println("Trying query : " + query);
         try {statement = conn.createStatement();
            statement.executeUpdate(query);
                 System.out.println("Successfully executed query: " + query);
                 success = true;
+
+        } catch (SQLException e) {
+            System.out.println("error with createCourse()");
+            e.printStackTrace();
+        }
+        return success;
+    }
+
+    public boolean createQuestion(String table, String question, String answer){
+        boolean success = false;
+        String query ="INSERT INTO " + table + "(question,answer) values("   + "'" + question + "','" + answer+"')";
+        System.out.println("Trying query : " + query);
+        try {statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Successfully executed query: " + query);
+            success = true;
 
         } catch (SQLException e) {
             System.out.println("error with createCourse()");

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class menuController {
     ArrayList<String> courses;
     Database db;
+    private String selectedCourse;
     static ArrayList<String> values;
     @FXML
     private ComboBox<String> courseSelect;
@@ -27,6 +28,9 @@ public class menuController {
     private Button editQuestions;
 
     @FXML
+    private Button newQuestion;
+
+    @FXML
     private Button startButton;
     private Stage window;
 
@@ -36,10 +40,20 @@ public class menuController {
     public void initialize() throws SQLException {
         //Will be called by FXMLLoader
         db = new Database();
+        newQuestion.setDisable(true);
+        editQuestions.setDisable(true);
+        /**
+         * Action Listener that enables Buttons and gets current Selected Course
+         */
+        courseSelect.getSelectionModel().selectedItemProperty().addListener(e -> {
+            selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
+            NewQuestionController.setTable(selectedCourse);
+            newQuestion.setDisable(false);
+            editQuestions.setDisable(false);
+        });
         values = db.getCourses();
         setCourses();
         System.out.println(courseSelect.toString());
-
     }
 
     public void setCourses(){
@@ -55,7 +69,18 @@ public class menuController {
     }
 
 
-
+    /**
+     * Method to create new Questions
+     */
+    @FXML
+    protected void newQuestions() throws IOException {
+        Stage qWindow = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
+        Parent root = loader.load();
+        qWindow.setScene(new Scene(root));
+        qWindow.show();
+    }
     /**
      * Method gets called when user clicks on
      * play after selecting the course
