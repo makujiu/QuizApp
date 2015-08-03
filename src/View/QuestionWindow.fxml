@@ -23,12 +23,15 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label id="newCourselabel" fx:id="questionLabel" text="Question" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-            <Label id="newCourselabel" fx:id="answerLabel" text="Answer" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label id="questionLabel" fx:id="questionLabel" text="Question" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Label id="answerLabel" fx:id="answerLabel" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="814.0" text="Answer" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <opaqueInsets>
+                  <Insets bottom="35.0" />
+               </opaqueInsets></Label>
             <Label fx:id="courseLabel" minWidth="150.0" prefHeight="155.0" prefWidth="150.0" text="Course" GridPane.rowIndex="2">
                <padding>
                   <Insets left="25.0" top="130.0" />
@@ -36,9 +39,9 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <children>
-                  <Button minHeight="75.0" minWidth="150.0" mnemonicParsing="false" text="Zurück" />
+                  <Button minHeight="75.0" minWidth="150.0" mnemonicParsing="false" onAction="#previousQuestion" text="Zurück" />
                   <Button minHeight="75.0" minWidth="150.0" mnemonicParsing="false" onAction="#showAnswer" text="Antwort" HBox.hgrow="ALWAYS" />
-                  <Button minHeight="75.0" minWidth="150.0" mnemonicParsing="false" text="Nächste" />
+                  <Button minHeight="75.0" minWidth="150.0" mnemonicParsing="false" onAction="#nextQuestion" text="Nächste" />
                </children>
                <GridPane.margin>
                   <Insets />
@@ -47,6 +50,16 @@
                   <Insets left="115.0" top="30.0" />
                </padding>
             </HBox>
+            <Label prefHeight="21.0" prefWidth="47.0" text="Frage:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets top="130.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="questionIndexLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <padding>
+                  <Insets left="60.0" top="130.0" />
+               </padding>
+            </Label>
          </children>
       </GridPane>
    </children>

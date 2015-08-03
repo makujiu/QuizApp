@@ -52,9 +52,25 @@ public class Database {
         statement = conn.createStatement();
         result = statement.executeQuery(query);
         while(result.next()){
-            results.put(result.getString("question"),result.getString("answer"));
+            results.put(result.getString("answer"),result.getString("question"));
         }
         return results;
+    }
+
+    public boolean removeTable(String table){
+        boolean success = false;
+        String query ="DROP TABLE " + table;
+        System.out.println("Trying query : " + query);
+        try {statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Successfully executed query: " + query);
+            success = true;
+
+        } catch (SQLException e) {
+            System.out.println("error with createCourse()");
+            e.printStackTrace();
+        }
+        return success;
     }
     /**
      * @param courseName table name

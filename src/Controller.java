@@ -2,6 +2,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -20,7 +21,13 @@ public class Controller {
     @FXML
     private Label courseLabel;
 
+    @FXML
+    private Label questionIndexLabel;
+
     private  Iterator<String> it;
+    private ArrayList<String> keys;
+    private String key;
+    int questionIndex = 0;
 
     private static HashMap<String, String>  questions;
 
@@ -35,16 +42,45 @@ public class Controller {
     public void initialize(){
      courseLabel.setText(course);
      answerLabel.setVisible(false);
-     String key = "";
+     key = "";
+     keys = new ArrayList<String>();
       it = questions.keySet().iterator();
-      if(it.hasNext()) {
+      // Adding all Keys to a Collection for iterating backwards/forwards
+      while(it.hasNext()) {
           key = it.next();
-          setQuestion(questions.get(key));
-          setAnswer(key);
+          keys.add(key);
       }
-
+        setQuestion(questions.get(keys.get(questionIndex)));
+        setAnswer(keys.get(questionIndex));
+        setQuestionIndex();
 
     }
+
+    private void setQuestionIndex(){
+        questionIndexLabel.setText(questionIndex+1 + " / " + questions.size());
+    }
+    @FXML
+    protected void nextQuestion() {
+            if(questionIndex+1 < questions.size()) {
+                questionIndex++;
+                setQuestion(questions.get(keys.get(questionIndex)));
+                setAnswer(keys.get(questionIndex));
+                answerLabel.setVisible(false);
+                setQuestionIndex();
+            }
+    }
+
+    @FXML
+    protected void previousQuestion(){
+        if(questionIndex > 0) {
+            questionIndex--;
+            setQuestion(questions.get(keys.get(questionIndex)));
+            setAnswer(keys.get(questionIndex));
+            answerLabel.setVisible(false);
+            setQuestionIndex();
+        }
+    }
+
     @FXML
     void showAnswer(ActionEvent event) {
         answerLabel.setVisible(true);

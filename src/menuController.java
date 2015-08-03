@@ -52,11 +52,6 @@ public class menuController {
             selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
             NewQuestionController.setTable(selectedCourse);
             Controller.setCourse(selectedCourse);
-            try {
-                Controller.setQuestions(db.getResults(selectedCourse));
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
             startButton.setDisable(false);
             newQuestion.setDisable(false);
             editQuestions.setDisable(false);
@@ -79,6 +74,18 @@ public class menuController {
     }
 
 
+    @FXML
+    protected void remove(){
+        if(courseSelect.getSelectionModel().getSelectedItem() != null && courseSelect.getSelectionModel().getSelectedItem() != "") {
+            db.removeTable(selectedCourse);
+            courseSelect.getItems().remove(selectedCourse);
+            newQuestion.setDisable(true);
+            editQuestions.setDisable(true);
+            startButton.setDisable(true);
+        } else
+            System.out.println("No Course selected");
+
+    }
     /**
      * Method to create new Questions
      */
@@ -97,6 +104,11 @@ public class menuController {
      */
     @FXML
     private void startQuiz() throws IOException {
+        try {
+            Controller.setQuestions(db.getResults(selectedCourse));
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
         Parent root = FXMLLoader.load(getClass().getResource("View/QuestionWindow.fxml"));
         window = new Stage();
         window.setScene(new Scene(root));

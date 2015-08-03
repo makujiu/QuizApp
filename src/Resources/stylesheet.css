@@ -15,6 +15,13 @@
     -fx-opacity: 1;
     -fx-font: bold 12pt "ITC Stone";
 }
+
+#questionLabel{
+    -fx-font-size: 11pt;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+    -fx-font: bold 25pt "Ringbearer";
+}
 .label-bright {
     -fx-font: bold 10pt "ITC Stone";
     -fx-text-fill: white;
@@ -26,12 +33,35 @@
     -fx-opacity: 1;
 }
 #newCourselabel{
-    -fx-font-size: 15pt;
+     -fx-font-size: 15pt;
+     -fx-text-fill: white;
+     -fx-opacity: 1;
+     -fx-font: bold 22pt "Comic Sans MS";
+ }
+
+#answerLabel{
+    -fx-font-size: 9pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
-    -fx-font: bold 22pt "Comic Sans MS";
+    -fx-font: bold 12pt "Comic Sans MS";
 }
-
+#removeButton{
+    -fx-padding: 3 6 6 6;
+    -fx-border-color: #e2e2e2;
+    -fx-border-radius: 33;
+    -fx-background-radius: 33;
+    -fx-background-color: red;
+    -fx-font: bold 10pt "ITC Stone";
+    -fx-text-fill: white;
+}
+#removeButton:hover {
+    -fx-background-color: darkred;
+    -fx-background-radius: 33;
+}
+#removeButton:pressed, #removeButton:default:hover:pressed {
+    -fx-background-color: indianred;
+    -fx-text-fill: #1d1d1d;
+}
 .button {
     -fx-padding: 3 6 6 6;
     -fx-border-color: #e2e2e2;
