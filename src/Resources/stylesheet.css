@@ -29,7 +29,7 @@
     -fx-font-size: 15pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
-    -fx-font: bold 12pt "ITC Stone";
+    -fx-font: bold 22pt "Comic Sans MS";
 }
 
 .button {
@@ -39,7 +39,7 @@
     -fx-background-radius: 33;
     -fx-background-color: #8eadcc;
     -fx-font: bold 10pt "ITC Stone";
-    -fx-text-fill: #d8d8d8;
+    -fx-text-fill: white;
 
 }
 
