@@ -45,18 +45,24 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="editQuestions" maxWidth="155.0" mnemonicParsing="false" prefHeight="60.0" text="Fragen bearbeiten" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#startQuiz" prefHeight="85.0" prefWidth="196.0" text="Start" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <font>
                   <Font size="33.0" />
                </font></Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Button fx:id="editQuestions" maxWidth="155.0" mnemonicParsing="false" prefHeight="60.0" text="Fragen bearbeiten">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="newQuestion" layoutX="10.0" layoutY="10.0" maxWidth="155.0" mnemonicParsing="false" onAction="#newQuestions" prefHeight="60.0" prefWidth="130.0" text="Neue Fragen">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </children>

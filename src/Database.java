@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Martin on 30.07.2015.
@@ -37,7 +38,23 @@ public class Database {
             i++;
         }
         return results;
+    }
 
+    /**
+     * Mapping every answer to a question
+     * @param table
+     * @return
+     * @throws SQLException
+     */
+    public HashMap<String, String> getResults(String table) throws SQLException {
+        HashMap<String, String> results = new HashMap<String,String>();
+        String query ="SELECT question, answer FROM " + table +"";
+        statement = conn.createStatement();
+        result = statement.executeQuery(query);
+        while(result.next()){
+            results.put(result.getString("question"),result.getString("answer"));
+        }
+        return results;
     }
     /**
      * @param courseName table name

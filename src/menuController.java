@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class menuController {
     @FXML
     private Button newQuestion;
 
+
     @FXML
     private Button startButton;
     private Stage window;
@@ -42,12 +44,20 @@ public class menuController {
         db = new Database();
         newQuestion.setDisable(true);
         editQuestions.setDisable(true);
+        startButton.setDisable(true);
         /**
          * Action Listener that enables Buttons and gets current Selected Course
          */
         courseSelect.getSelectionModel().selectedItemProperty().addListener(e -> {
             selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
             NewQuestionController.setTable(selectedCourse);
+            Controller.setCourse(selectedCourse);
+            try {
+                Controller.setQuestions(db.getResults(selectedCourse));
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            startButton.setDisable(false);
             newQuestion.setDisable(false);
             editQuestions.setDisable(false);
         });
