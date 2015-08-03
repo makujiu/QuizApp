@@ -1,9 +1,12 @@
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class newCourseController {
@@ -31,10 +34,14 @@ public class newCourseController {
      * Create a Table in DB
      */
     @FXML
-    void okClicked(ActionEvent event) throws SQLException {
+    void okClicked(ActionEvent event) throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
+        Parent root = loader.load();
+        window.setScene(new Scene(root));
      if(db.createCourse(courseName.getText(), profName.getText(), Integer.parseInt(year.getText())))
             update();
-        window.close();
+
     }
 
     /**

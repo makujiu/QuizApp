@@ -29,7 +29,7 @@ public class menuController {
     @FXML
     private Button startButton;
     private Stage window;
-    private newCourseController newCourseController;
+
 
 
     @FXML
@@ -37,6 +37,8 @@ public class menuController {
         //Will be called by FXMLLoader
         db = new Database();
         values = db.getCourses();
+        setCourses();
+        System.out.println(courseSelect.toString());
 
     }
 
