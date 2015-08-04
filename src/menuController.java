@@ -76,7 +76,9 @@ public class menuController {
 
     @FXML
     protected void remove(){
-        if(courseSelect.getSelectionModel().getSelectedItem() != null && courseSelect.getSelectionModel().getSelectedItem() != "") {
+      /**
+       * Method Currently disabled weil ich angst hab dass ich mein Lernamterial lösche T_T
+            if(courseSelect.getSelectionModel().getSelectedItem() != null && courseSelect.getSelectionModel().getSelectedItem() != "") {
             db.removeTable(selectedCourse);
             courseSelect.getItems().remove(selectedCourse);
             newQuestion.setDisable(true);
@@ -84,7 +86,7 @@ public class menuController {
             startButton.setDisable(true);
         } else
             System.out.println("No Course selected");
-
+    **/
     }
     /**
      * Method to create new Questions

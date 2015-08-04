@@ -108,7 +108,7 @@ public class Database {
             success = true;
 
         } catch (SQLException e) {
-            System.out.println("error with createCourse()");
+            System.out.println("error with createQuestion()");
             e.printStackTrace();
         }
         return success;
