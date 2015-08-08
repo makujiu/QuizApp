@@ -46,7 +46,7 @@ public class Controller {
           setQuestionIndex();
       }
 
-    
+
 
     private void setQuestionIndex(){
         questionIndexLabel.setText(questionIndex+1 + " / " + questions.size());

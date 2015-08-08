@@ -41,6 +41,7 @@ public class newCourseController {
         window.setScene(new Scene(root));
         //Removing all spaces
         String filteredCoursename = courseName.getText().replaceAll("\\s","");
+        System.out.println("Filtered Cousename: " + filteredCoursename);
         NewQuestionController.setTable(filteredCoursename);
      if(db.createCourse(filteredCoursename, profName.getText(), Integer.parseInt(year.getText())))
             update();

@@ -52,6 +52,11 @@ public class menuController {
             selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
             NewQuestionController.setTable(selectedCourse);
             Controller.setCourse(selectedCourse);
+            try {
+                EditQuestionController.setQuestions(db.getResults(selectedCourse));
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             startButton.setDisable(false);
             newQuestion.setDisable(false);
             editQuestions.setDisable(false);
@@ -139,5 +144,16 @@ public class menuController {
         values = db.getCourses();
         setCourses();
         System.out.println("Successfully set Courses");
+    }
+
+
+    @FXML
+    protected void editQuestions() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("View/editQuestion.fxml"));
+        Parent root = loader.load();
+        Stage window = new Stage();
+        window.setScene(new Scene(root));
+        window.show();
     }
 }

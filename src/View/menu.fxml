@@ -51,7 +51,7 @@
                </font></Button>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="editQuestions" maxWidth="155.0" mnemonicParsing="false" prefHeight="60.0" text="Fragen bearbeiten">
+                  <Button fx:id="editQuestions" maxWidth="155.0" mnemonicParsing="false" onAction="#editQuestions" prefHeight="60.0" text="Fragen bearbeiten">
                      <font>
                         <Font size="15.0" />
                      </font>

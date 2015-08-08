@@ -53,7 +53,7 @@ public class Database {
      * @throws SQLException
      */
     public ArrayList<Question> getResults(String table) throws SQLException {
-
+        questionSet.clear();
         String query ="SELECT question, answer FROM " + table +"";
         statement = conn.createStatement();
         result = statement.executeQuery(query);
@@ -63,9 +63,6 @@ public class Database {
             questionSet.add(index, new Question());
             questionSet.get(index).setQuestion(result.getString("question"));
             questionSet.get(index).setAnswer(result.getString("answer"));
-            System.out.println("Frage: " + index);
-            System.out.println("Question: " +result.getString("question"));
-            System.out.println("Answer: " +result.getString("answer") +"\n\n");
             index++;
 
         }
