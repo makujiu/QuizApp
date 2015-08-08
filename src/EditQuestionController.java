@@ -15,9 +15,11 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EditQuestionController {
+    Database db;
     private static String table;
     @FXML
     private TableView<Question> mainTable;
@@ -40,13 +42,22 @@ public class EditQuestionController {
         EditQuestionController.table = table;
     }
 
+    private void getQuestions(String t) throws SQLException {
+        //Getting Questions from DB
+        questions = db.getResults(t);
+
+    }
+
     @FXML
-    private void initialize(){
-        setTableView();
-        mainTable.setItems(questionList);
+    private void initialize() throws SQLException {
+        db = new Database();
+        //Getting the questions from table DB
+        updateTable();
+
         mainTable.setOnMouseClicked(e -> {
             if (e.getClickCount() == 2)
                 try {
+                    UpdateQuestionController.setEditController(this);
                     UpdateQuestionController.setTable(table);
                     UpdateQuestionController.setAnswer(mainTable.getSelectionModel().getSelectedItem().getAnswer());
                     UpdateQuestionController.setQuestion(mainTable.getSelectionModel().getSelectedItem().getQuestion());
@@ -59,6 +70,14 @@ public class EditQuestionController {
 
     }
 
+    public void updateTable(){
+        try {
+            getQuestions(table);
+            setTableView();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void setTableView(){
         questionList = FXCollections.observableArrayList();
         questionList.clear();
@@ -66,14 +85,17 @@ public class EditQuestionController {
         answerColumn.setCellValueFactory(new PropertyValueFactory<>("answer"));
         for(Question q: questions)
             questionList.add(q);
+        mainTable.setItems(questionList);
     }
 
     private void openEditWindow() throws IOException {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/updateQuestionWindow.fxml"));
         Parent root = loader.load();
         Stage editWindow = new Stage();
         editWindow.setScene(new Scene(root));
+        UpdateQuestionController.setWindow(editWindow);
         editWindow.show();
     }
 
