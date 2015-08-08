@@ -1,3 +1,6 @@
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +15,11 @@ public class Database {
     private boolean connection;
     private Statement statement;
     ResultSet result;
+    ArrayList<Question> questionSet;
 
     public Database(){
+        questionSet = new ArrayList<Question>();
+        System.out.println("New quesitonset");
         connectDatabase();
     }
 
@@ -46,15 +52,24 @@ public class Database {
      * @return
      * @throws SQLException
      */
-    public HashMap<String, String> getResults(String table) throws SQLException {
-        HashMap<String, String> results = new HashMap<String,String>();
+    public ArrayList<Question> getResults(String table) throws SQLException {
+
         String query ="SELECT question, answer FROM " + table +"";
         statement = conn.createStatement();
         result = statement.executeQuery(query);
+        int index = 0;
         while(result.next()){
-            results.put(result.getString("answer"),result.getString("question"));
+            //results.put(result.getString("answer"),result.getString("question"));
+            questionSet.add(index, new Question());
+            questionSet.get(index).setQuestion(result.getString("question"));
+            questionSet.get(index).setAnswer(result.getString("answer"));
+            System.out.println("Frage: " + index);
+            System.out.println("Question: " +result.getString("question"));
+            System.out.println("Answer: " +result.getString("answer") +"\n\n");
+            index++;
+
         }
-        return results;
+        return questionSet;
     }
 
     public boolean removeTable(String table){

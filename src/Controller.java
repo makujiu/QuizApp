@@ -24,37 +24,29 @@ public class Controller {
     @FXML
     private Label questionIndexLabel;
 
-    private  Iterator<String> it;
     private ArrayList<String> keys;
     private String key;
     int questionIndex = 0;
 
-    private static HashMap<String, String>  questions;
+    private static ArrayList<Question>  questions;
 
     public static void setCourse(String s){
         course = s;
     }
 
-    public static void setQuestions(HashMap<String,String> map){
-        questions = map;
+    public static void setQuestions(ArrayList<Question> set){
+        questions = set;
     }
     @FXML
     public void initialize(){
      courseLabel.setText(course);
      answerLabel.setVisible(false);
-     key = "";
-     keys = new ArrayList<String>();
-      it = questions.keySet().iterator();
-      // Adding all Keys to a Collection for iterating backwards/forwards
-      while(it.hasNext()) {
-          key = it.next();
-          keys.add(key);
+          setQuestion(questions.get(0).getQuestion());
+          setAnswer(questions.get(0).getAnswer());
+          setQuestionIndex();
       }
-        setQuestion(questions.get(keys.get(questionIndex)));
-        setAnswer(keys.get(questionIndex));
-        setQuestionIndex();
 
-    }
+    
 
     private void setQuestionIndex(){
         questionIndexLabel.setText(questionIndex+1 + " / " + questions.size());
@@ -63,8 +55,8 @@ public class Controller {
     protected void nextQuestion() {
             if(questionIndex+1 < questions.size()) {
                 questionIndex++;
-                setQuestion(questions.get(keys.get(questionIndex)));
-                setAnswer(keys.get(questionIndex));
+                setQuestion(questions.get(questionIndex).getQuestion());
+                setAnswer(questions.get(questionIndex).getAnswer());
                 answerLabel.setVisible(false);
                 setQuestionIndex();
             }
@@ -74,8 +66,8 @@ public class Controller {
     protected void previousQuestion(){
         if(questionIndex > 0) {
             questionIndex--;
-            setQuestion(questions.get(keys.get(questionIndex)));
-            setAnswer(keys.get(questionIndex));
+            setQuestion(questions.get(questionIndex).getQuestion());
+            setAnswer(questions.get(questionIndex).getAnswer());
             answerLabel.setVisible(false);
             setQuestionIndex();
         }
