@@ -32,6 +32,34 @@ public class Database {
         System.out.println("Trying to execute query: " + query);
     }
 
+    /**
+     *  UPDATE table_name
+        SET column1=value1,column2=value2,...
+        WHERE some_column=some_value;
+     * @param table
+     * WHERE
+     * @param q  = Question table
+     * @param a  = Answer Table
+     * SET
+     * @param newQ = new Question Value
+     * @param newA = new Answer Value
+     */
+
+    public boolean updateEntry(String table, String q, String a, String newQ, String newA){
+        boolean success = false;
+        String query = "UPDATE " + table + " SET question='" + newQ + "'" +
+                ", answer = '" + newA +  "' WHERE question='" + q + "' and answer = '" + a +"';";
+        try {statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Successfully executed query: " + query);
+            success = true;
+
+        } catch (SQLException e) {
+            System.out.println("error with createQuestion()");
+            e.printStackTrace();
+        }
+        return success;
+    }
 
     public ArrayList<String> getCourses() throws SQLException {
         String query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='quiz' ";

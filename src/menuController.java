@@ -54,6 +54,7 @@ public class menuController {
             Controller.setCourse(selectedCourse);
             try {
                 EditQuestionController.setQuestions(db.getResults(selectedCourse));
+                EditQuestionController.setTable(selectedCourse);
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
