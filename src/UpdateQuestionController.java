@@ -53,7 +53,7 @@ public class UpdateQuestionController {
 
     @FXML
     void cancel(ActionEvent event) {
-
+        window.close();
     }
 
     /**

@@ -121,6 +121,7 @@ public class menuController {
         Parent root = FXMLLoader.load(getClass().getResource("View/QuestionWindow.fxml"));
         window = new Stage();
         window.setScene(new Scene(root));
+        window.setTitle("Quiz - Don't let your dreams be dreams");
         window.show();
 
     }
@@ -137,6 +138,7 @@ public class menuController {
         newCourseController.setWindow(window);
         newCourseController.setMenuController(this);
         window.setScene(new Scene(root));
+        window.setTitle("Create a new Course");
         window.show();
     }
 
@@ -155,6 +157,7 @@ public class menuController {
         Parent root = loader.load();
         Stage window = new Stage();
         window.setScene(new Scene(root));
+        window.setTitle("Edit Question");
         window.show();
     }
 }

@@ -39,6 +39,7 @@ public class newCourseController {
         loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
         Parent root = loader.load();
         window.setScene(new Scene(root));
+        window.setTitle("New Question");
         //Removing all spaces
         String filteredCoursename = courseName.getText().replaceAll("\\s","");
         System.out.println("Filtered Cousename: " + filteredCoursename);
