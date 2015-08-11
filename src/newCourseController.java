@@ -16,6 +16,7 @@ import java.sql.SQLException;
 
 
 public class newCourseController {
+    private static String filteredCoursename;
     Database db = new Database();
     @FXML
     private TextField courseName;
@@ -44,7 +45,7 @@ public class newCourseController {
     void okClicked(ActionEvent event) throws SQLException, IOException {
         openNewQuestionWindow();
         //Removing all spaces from the Course Name
-        String filteredCoursename = courseName.getText().replaceAll("\\s","");
+        filteredCoursename = courseName.getText().replaceAll("\\s","");
 
         //DEBUG PURPOSE ---
         System.out.println("Filtered Cousename: " + filteredCoursename);
@@ -55,6 +56,10 @@ public class newCourseController {
          update();
      }
 
+    }
+
+    public static String getTable(){
+        return filteredCoursename;
     }
 
     private void openNewQuestionWindow() throws IOException {

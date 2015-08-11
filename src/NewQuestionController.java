@@ -25,6 +25,7 @@ public class NewQuestionController {
         table = t;
     }
 
+
     @FXML
     protected void saveQuestion(){
         if(questionField.getText() != null && answerField != null) {
