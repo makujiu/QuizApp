@@ -44,8 +44,10 @@ public class newCourseController {
         String filteredCoursename = courseName.getText().replaceAll("\\s","");
         System.out.println("Filtered Cousename: " + filteredCoursename);
         NewQuestionController.setTable(filteredCoursename);
-     if(db.createCourse(filteredCoursename, profName.getText(), Integer.parseInt(year.getText())))
-            update();
+     if(db.createCourse(filteredCoursename, profName.getText(), Integer.parseInt(year.getText()))) {
+         NewQuestionController.setTable(filteredCoursename);
+         update();
+     }
 
     }
 

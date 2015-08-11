@@ -26,7 +26,7 @@ public class Controller {
 
     private ArrayList<String> keys;
     private String key;
-    int questionIndex = 0;
+    private int questionIndex = 0;
 
     private static ArrayList<Question>  questions;
 

@@ -14,8 +14,8 @@ public class Database {
     private Connection conn;
     private boolean connection;
     private Statement statement;
-    ResultSet result;
-    ArrayList<Question> questionSet;
+    private ResultSet result;
+    private ArrayList<Question> questionSet;
 
     public Database(){
         questionSet = new ArrayList<Question>();

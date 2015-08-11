@@ -31,42 +31,65 @@ public class menuController {
     @FXML
     private Button newQuestion;
 
-
     @FXML
     private Button startButton;
     private Stage window;
-
-
 
     @FXML
     public void initialize() throws SQLException {
         //Will be called by FXMLLoader
         db = new Database();
-        newQuestion.setDisable(true);
-        editQuestions.setDisable(true);
-        startButton.setDisable(true);
+        disableButtons(true);
         /**
          * Action Listener that enables Buttons and gets current Selected Course
          */
         courseSelect.getSelectionModel().selectedItemProperty().addListener(e -> {
             selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
-            NewQuestionController.setTable(selectedCourse);
-            Controller.setCourse(selectedCourse);
-            try {
-                EditQuestionController.setQuestions(db.getResults(selectedCourse));
-                EditQuestionController.setTable(selectedCourse);
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-            startButton.setDisable(false);
-            newQuestion.setDisable(false);
-            editQuestions.setDisable(false);
+            configController();
+            disableButtons(false);
+            System.out.println(selectedCourse);
         });
-        values = db.getCourses();
-        setCourses();
-        System.out.println(courseSelect.toString());
+        //Updating the Course Select Box
+        update();
+
     }
 
+    private void disableButtons(boolean v){
+        startButton.setDisable(v);
+        newQuestion.setDisable(v);
+        editQuestions.setDisable(v);
+    }
+    /**
+     * This Function is used to set up all the Controllers
+     */
+    private void configController(){
+        configGameController();
+        configNewQuestionController();
+        configEditController();
+    }
+
+    /**
+     * Thats the controller for the Game itself
+     */
+    private void configGameController(){
+        Controller.setCourse(selectedCourse);
+    }
+    private void configNewQuestionController(){
+        NewQuestionController.setTable(selectedCourse);
+    }
+
+    /**  ---
+     * this Function is used to config the EditQuestionController Class.
+     *   ---
+     */
+    private void configEditController(){
+        try {
+            EditQuestionController.setQuestions(db.getResults(selectedCourse));
+            EditQuestionController.setTable(selectedCourse);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
     public void setCourses(){
         courseSelect.getItems().clear();
         try {

@@ -20,7 +20,7 @@
     -fx-font-size: 11pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
-    -fx-font: bold 25pt "Ringbearer";
+    -fx-font: bold 25pt "Comic Sans MS";
 }
 .label-bright {
     -fx-font: bold 10pt "ITC Stone";
@@ -68,7 +68,7 @@
     -fx-border-radius: 33;
     -fx-background-radius: 33;
     -fx-background-color: #8eadcc;
-    -fx-font: bold 10pt "ITC Stone";
+    -fx-font: bold 10pt "Comic Sans MS";
     -fx-text-fill: white;
 
 }
@@ -80,6 +80,27 @@
 
 .button:pressed, .button:default:hover:pressed {
     -fx-background-color: #475666;
+    -fx-text-fill: #1d1d1d;
+}
+
+#startButton{
+    -fx-padding: 3 6 6 6;
+    -fx-border-color: #e2e2e2;
+    -fx-border-radius: 551;
+    -fx-background-radius: 551;
+    -fx-background-color: red;
+    -fx-font: bold 17pt "Comic Sans MS";
+    -fx-text-fill: white;
+
+}
+
+#startButton:hover {
+    -fx-background-color: darkred;
+    -fx-background-radius: 155;
+}
+
+#startButton:pressed, .button:default:hover:pressed {
+    -fx-background-color: darkred;
     -fx-text-fill: #1d1d1d;
 }
 
