@@ -1,3 +1,6 @@
+/**
+ *@author Martin Nowosad
+ */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+
+
 
 public class newCourseController {
     Database db = new Database();
@@ -31,24 +37,32 @@ public class newCourseController {
         window = s;
     }
     /**
-     * Create a Table in DB
+     * After User clicks Okay then he gets forwarded to the New Question Window
+     * plus automaticly creates a Table in DB
      */
     @FXML
     void okClicked(ActionEvent event) throws SQLException, IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
-        Parent root = loader.load();
-        window.setScene(new Scene(root));
-        window.setTitle("New Question");
-        //Removing all spaces
+        openNewQuestionWindow();
+        //Removing all spaces from the Course Name
         String filteredCoursename = courseName.getText().replaceAll("\\s","");
+
+        //DEBUG PURPOSE ---
         System.out.println("Filtered Cousename: " + filteredCoursename);
+        //-----------------
         NewQuestionController.setTable(filteredCoursename);
      if(db.createCourse(filteredCoursename, profName.getText(), Integer.parseInt(year.getText()))) {
          NewQuestionController.setTable(filteredCoursename);
          update();
      }
 
+    }
+
+    private void openNewQuestionWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("View/newQuestion.fxml"));
+        Parent root = loader.load();
+        window.setScene(new Scene(root));
+        window.setTitle("New Question");
     }
 
     /**

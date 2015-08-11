@@ -1,10 +1,12 @@
 /**
- * Created by Martin on 08.08.2015.
+ *@author Martin Nowosad
  */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
 
 public class UpdateQuestionController {
     private Database db;

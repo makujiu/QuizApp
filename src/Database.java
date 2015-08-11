@@ -1,12 +1,11 @@
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
-
+/**
+ *@author Martin Nowosad
+ */
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+;
 
 /**
- * Created by Martin on 30.07.2015.
  * This class connects to the Database and offers
  * an interface to execute queries and get results
  */

@@ -1,14 +1,13 @@
+/**
+ *@author Martin Nowosad
+ */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
-/**
- * Game Controller Class
- */
+
+
 public class Controller {
 
     private static String course;

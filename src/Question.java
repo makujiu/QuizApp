@@ -1,6 +1,5 @@
 /**
- * Created by Martin on 08.08.2015.
- * Class contains Question and Answer
+ *@author Martin Nowosad
  */
 public class Question {
     private String question;

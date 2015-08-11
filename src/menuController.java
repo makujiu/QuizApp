@@ -1,3 +1,6 @@
+/**
+ *@author Martin Nowosad
+ */
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,9 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- * Created by Martin on 31.07.2015.
- */
+
 public class menuController {
     ArrayList<String> courses;
     Database db;
