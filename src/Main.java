@@ -24,7 +24,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        db = new Database();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/menu.fxml"));
         Parent root = loader.load();
