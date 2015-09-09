@@ -2,6 +2,7 @@
  *@author Martin Nowosad
  */
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
@@ -13,7 +14,7 @@ public class NewQuestionController {
     private TextField questionField;
 
     @FXML
-    private TextField answerField;
+    private TextArea answerField;
 
     private static String table;
 

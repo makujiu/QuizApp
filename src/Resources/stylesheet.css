@@ -47,14 +47,26 @@
      -fx-opacity: 1;
      -fx-font: bold 22pt "Comic Sans MS";
  }
-
+#newCourselabelAnswer.content{
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        -fx-outer-border,
+        -fx-inner-border,
+        -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-border-color: white;
+    fx-border-size: 15;
+    -fx-font: bold 12pt "Comic Sans MS" white;
+}
 #answerLabel{
     -fx-font-size: 9pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
     -fx-font: bold 12pt "Comic Sans MS";
 }
-
 #headline{
     -fx-font-size: 25pt;
     -fx-text-fill: white;
@@ -93,6 +105,7 @@
 .button:hover {
     -fx-background-color: #475666;
     -fx-background-radius: 33;
+    -fx-border-radius: 33;
 }
 
 .button:pressed, .button:default:hover:pressed {

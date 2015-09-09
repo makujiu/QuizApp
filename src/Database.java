@@ -96,20 +96,34 @@ public class Database {
         return questionSet;
     }
 
+    public boolean removeQuestion(String table, String question){
+        String query ="DELETE from "+ table +" where Question='" + question + "'";
+        try{
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Successfully Deleted Question: " + question + "from " + table);
+            return true;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
+
+        }
+
+    }
     public boolean removeTable(String table){
-        boolean success = false;
         String query ="DROP TABLE " + table;
         System.out.println("Trying query : " + query);
         try {statement = conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Successfully executed query: " + query);
-            success = true;
+            return true;
 
         } catch (SQLException e) {
             System.out.println("error with createCourse()");
             e.printStackTrace();
+            return false;
         }
-        return success;
     }
     /**
      * @param courseName table name

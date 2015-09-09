@@ -69,4 +69,11 @@ public class UpdateQuestionController {
         window.close();
     }
 
+    @FXML
+    protected void remove(){
+        db.removeQuestion(table, question);
+        controller.updateTable();
+        window.close();
+    }
+
 }

@@ -23,10 +23,15 @@
             <TextArea fx:id="questionField" layoutX="13.0" layoutY="66.0" prefHeight="114.0" prefWidth="574.0" GridPane.rowIndex="1" />
             <Label alignment="BOTTOM_LEFT" layoutX="285.0" layoutY="28.0" text="Question" GridPane.halignment="CENTER" />
             <Label alignment="BOTTOM_LEFT" text="Answer" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="55.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
                <children>
                   <Button mnemonicParsing="false" onAction="#cancel" prefWidth="75.0" text="Cancel" />
                   <Button mnemonicParsing="false" onAction="#update" prefHeight="31.0" prefWidth="75.0" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#remove" text="Remove" id="removeButton">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
                </children>
                <GridPane.margin>
                   <Insets />

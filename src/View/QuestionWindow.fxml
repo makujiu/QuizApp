@@ -23,8 +23,8 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="229.0" minHeight="10.0" prefHeight="219.0" valignment="TOP" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="168.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label id="questionLabel" fx:id="questionLabel" text="Question" GridPane.columnSpan="2" GridPane.halignment="CENTER" />

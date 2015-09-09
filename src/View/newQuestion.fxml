@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -29,11 +30,11 @@
                  <Font name="Comic Sans MS" size="48.0" />
              </font>
              </TextField>
-            <TextField id="newCourselabel" fx:id="answerField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextArea id="newCourselabelAnswer" fx:id="answerField" blendMode="DARKEN" depthTest="ENABLE" prefHeight="146.0" prefWidth="476.0" promptText="Please enter a QUestion" text="rababab" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                 <font>
-                    <Font name="Comic Sans MS" size="48.0" />
+                    <Font name="Comic Sans MS" size="21.0" />
                 </font>
-            </TextField>
+            </TextArea>
             <HBox prefHeight="155.0" prefWidth="130.0" spacing="120.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                <children>
                   <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="165.0" text="Exit" />

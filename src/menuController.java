@@ -41,9 +41,6 @@ public class menuController {
         //Will be called by FXMLLoader
         db = new Database();
         disableButtons(true);
-        /**
-         * Action Listener that enables Buttons and gets current Selected Course
-         */
         courseSelect.getSelectionModel().selectedItemProperty().addListener(e -> {
             selectedCourse = courseSelect.getSelectionModel().getSelectedItem();
             configController();
@@ -61,7 +58,7 @@ public class menuController {
         editQuestions.setDisable(v);
     }
     /**
-     * This Function is used to set up all the Controllers
+     * This Function is used to organize all the Controllers
      */
     private void configController(){
         configGameController();
@@ -69,9 +66,6 @@ public class menuController {
         configEditController();
     }
 
-    /**
-     * Thats the controller for the Game itself
-     */
     private void configGameController(){
         Controller.setCourse(selectedCourse);
     }
@@ -79,10 +73,7 @@ public class menuController {
         NewQuestionController.setTable(selectedCourse);
     }
 
-    /**  ---
-     * this Function is used to config the EditQuestionController Class.
-     *   ---
-     */
+
     private void configEditController(){
         try {
             EditQuestionController.setQuestions(db.getResults(selectedCourse));
@@ -106,9 +97,6 @@ public class menuController {
 
     @FXML
     protected void remove(){
-      /**
-       * Method Currently disabled weil ich angst hab dass ich mein Lernamterial lösche T_T ``
-       * */
             if(courseSelect.getSelectionModel().getSelectedItem() != null && courseSelect.getSelectionModel().getSelectedItem() != "") {
             db.removeTable(selectedCourse);
             courseSelect.getItems().remove(selectedCourse);
@@ -119,9 +107,7 @@ public class menuController {
             System.out.println("No Course selected");
 
     }
-    /**
-     * Method to create new Questions
-     */
+
     @FXML
     protected void newQuestions() throws IOException {
         Stage qWindow = new Stage();
