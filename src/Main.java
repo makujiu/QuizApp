@@ -29,6 +29,7 @@ public class Main extends Application {
         Parent root = loader.load();
         primaryStage.setTitle("QuizApp 1.0");
         primaryStage.setScene(new Scene(root));
+       // primaryStage.setFullScreen(true);
         primaryStage.show();
 
     }

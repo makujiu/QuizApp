@@ -1,22 +1,21 @@
-/*#mainBackground{
+#mainBackground{
     -fx-background-color: #7CAFC2;
     -fx-font-size: 12px;
-}*/
-
+}
+/*
 #mainBackground{
 -fx-background-image: url("sunset.jpg");
 -fx-background-repeat: stretch;
 -fx-background-size: 900 506;
 -fx-background-position: center center;
 -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-}
+}*/
 .text-field {
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-border-width: 1;
     -fx-border-color: white;
     -fx-background-insets: 0 -1 -1 2, 5 0 0 0, 0 -1 3 -1;
-
 }
 .label{
     -fx-font-size: 11pt;
@@ -27,8 +26,7 @@
 
 #questionLabel{
     -fx-font-size: 11pt;
-    -fx-text-fill: white;
-    -fx-opacity: 1;
+    -fx-opacity: 0.8;
     -fx-font: bold 25pt "Comic Sans MS";
 }
 .label-bright {
@@ -65,13 +63,20 @@
     -fx-font-size: 9pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
-    -fx-font: bold 12pt "Comic Sans MS";
+    -fx-font: 10pt "Comic Sans MS";
 }
 #headline{
     -fx-font-size: 25pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
     -fx-font: bold 25pt "Comic Sans MS";
+}
+#answerBackground{
+    -fx-background-color: black;
+    -fx-opacity: 0.8;
+}
+#answerBackground.content{
+    -fx-opacity: 0;
 }
 #removeButton{
     -fx-padding: 3 6 6 6;

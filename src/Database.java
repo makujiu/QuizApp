@@ -27,8 +27,21 @@ public class Database {
      *
      * Used for creating new Courses and new Questions
      */
-    public void commit(String query){
-        System.out.println("Trying to execute query: " + query);
+    public boolean setQuestionIsHard(String table, String q, String a, int hard){
+        boolean success = false;
+        String query = "UPDATE " + table + " SET hard='" + hard + "'" +
+             "WHERE question='" + q + "' and answer = '" + a +"';";
+        try {statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Successfully executed query: " + query);
+            success = true;
+
+        } catch (SQLException e) {
+            System.out.println("error with createQuestion()");
+            e.printStackTrace();
+        }
+        return success;
+
     }
 
     /**
@@ -81,7 +94,7 @@ public class Database {
      */
     public ArrayList<Question> getResults(String table) throws SQLException {
         questionSet.clear();
-        String query ="SELECT question, answer FROM " + table +"";
+        String query ="SELECT question, answer, hard FROM " + table +"";
         statement = conn.createStatement();
         result = statement.executeQuery(query);
         int index = 0;
@@ -90,6 +103,7 @@ public class Database {
             questionSet.add(index, new Question());
             questionSet.get(index).setQuestion(result.getString("question"));
             questionSet.get(index).setAnswer(result.getString("answer"));
+            questionSet.get(index).setHard(result.getInt("hard"));
             index++;
 
         }
@@ -137,7 +151,8 @@ public class Database {
                 " (professor varchar(255)," +
                 "courseYear int," +
                 "question varchar(255)," +
-                "answer varchar(255))";
+                "answer varchar(255),"+
+                "hard int)";
         System.out.println("Trying query : " + query);
         try {statement = conn.createStatement();
            statement.executeUpdate(query);

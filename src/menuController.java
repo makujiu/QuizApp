@@ -124,6 +124,8 @@ public class menuController {
     @FXML
     private void startQuiz() throws IOException {
         try {
+            Controller.setDb(db);
+            Controller.setTableName(selectedCourse);
             Controller.setQuestions(db.getResults(selectedCourse));
         } catch (SQLException e1) {
             e1.printStackTrace();
